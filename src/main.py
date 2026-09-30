@@ -36,13 +36,11 @@ async def main():
         
         # Launch browser
         Actor.log.info('Launching browser...')
-        browser = await AsyncCamoufox(
+        async with AsyncCamoufox(
             headless=True,
             proxy=proxy_url,
             humanize=True
-        )
-        
-        try:
+        ) as browser:
             page = await browser.new_page()
             Actor.log.info(f'Navigating to {base_url}')
             await page.goto(base_url, wait_until='networkidle')
@@ -141,7 +139,5 @@ async def main():
                         'scrapedAt': datetime.now(timezone.utc).isoformat()
                     })
                     results_count += 1
-        
-        finally:
-            await browser.close()
+            
             Actor.log.info(f'Scraper completed - {results_count} items saved')
