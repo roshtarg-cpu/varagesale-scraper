@@ -1,49 +1,12 @@
 {
   "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
   "actorSpecification": 1,
-  "fields": {
-    "url": {
-      "type": "string",
-      "title": "URL"
-    },
-    "title": {
-      "type": "string",
-      "title": "Title"
-    },
-    "description": {
-      "type": "string",
-      "title": "Description"
-    },
-    "price": {
-      "type": "string",
-      "title": "Price"
-    },
-    "priceValue": {
-      "type": "string",
-      "title": "Price Value"
-    },
-    "currency": {
-      "type": "string",
-      "title": "Currency"
-    },
-    "image": {
-      "type": "string",
-      "title": "Image URL"
-    },
-    "availability": {
-      "type": "string",
-      "title": "Availability"
-    },
-    "scrapedAt": {
-      "type": "string",
-      "title": "Scraped At"
-    }
-  },
+  "fields": {},
   "views": {
     "overview": {
       "title": "Overview",
       "transformation": {
-        "fields": ["url", "title", "price", "availability"]
+        "fields": ["url", "title", "price"]
       },
       "display": {
         "component": "table",
@@ -58,10 +21,6 @@
           },
           "price": {
             "label": "Price",
-            "format": "text"
-          },
-          "availability": {
-            "label": "Status",
             "format": "text"
           }
         }
