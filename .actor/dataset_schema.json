@@ -4,48 +4,39 @@
   "fields": {
     "url": {
       "type": "string",
-      "title": "URL",
-      "description": "Direct link to the listing"
+      "title": "URL"
     },
     "title": {
       "type": "string",
-      "title": "Title",
-      "description": "Listing title"
+      "title": "Title"
     },
     "description": {
       "type": "string",
-      "title": "Description",
-      "description": "Full listing description"
+      "title": "Description"
     },
     "price": {
       "type": "string",
-      "title": "Price",
-      "description": "Formatted price with currency"
+      "title": "Price"
     },
     "priceValue": {
       "type": "string",
-      "title": "Price Value",
-      "description": "Numeric price value"
+      "title": "Price Value"
     },
     "currency": {
       "type": "string",
-      "title": "Currency",
-      "description": "Price currency (USD, EUR, etc.)"
+      "title": "Currency"
     },
     "image": {
       "type": "string",
-      "title": "Image URL",
-      "description": "Main listing image"
+      "title": "Image URL"
     },
     "availability": {
       "type": "string",
-      "title": "Availability",
-      "description": "Product availability status"
+      "title": "Availability"
     },
     "scrapedAt": {
       "type": "string",
-      "title": "Scraped At",
-      "description": "Timestamp when data was collected"
+      "title": "Scraped At"
     }
   },
   "views": {
