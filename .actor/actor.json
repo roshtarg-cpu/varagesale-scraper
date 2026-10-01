@@ -6,5 +6,8 @@
   "version": "3.0",
   "inputSchema": "./input_schema.json",
   "outputSchema": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
   "dockerfile": "./Dockerfile"
 }

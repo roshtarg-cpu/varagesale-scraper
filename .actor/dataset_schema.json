@@ -1,0 +1,70 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "Direct link to the listing"
+    },
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Listing title"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Listing description"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price",
+      "description": "Listed price"
+    },
+    "image": {
+      "type": "string",
+      "title": "Image",
+      "description": "Main image URL"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "Location/city"
+    },
+    "scrapedAt": {
+      "type": "string",
+      "title": "Scraped At",
+      "description": "Timestamp"
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Overview",
+      "transformation": {
+        "fields": ["url", "title", "price", "location"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "url": {
+            "label": "URL",
+            "format": "link"
+          },
+          "title": {
+            "label": "Title",
+            "format": "text"
+          },
+          "price": {
+            "label": "Price",
+            "format": "text"
+          },
+          "location": {
+            "label": "Location",
+            "format": "text"
+          }
+        }
+      }
+    }
+  }
+}
