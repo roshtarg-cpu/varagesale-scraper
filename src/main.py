@@ -38,8 +38,7 @@ async def main():
         Actor.log.info('Launching browser...')
         async with AsyncCamoufox(
             headless=True,
-            proxy=proxy_url,
-            humanize=True
+            proxy=proxy_url
         ) as browser:
             page = await browser.new_page()
             Actor.log.info(f'Navigating to {base_url}')
