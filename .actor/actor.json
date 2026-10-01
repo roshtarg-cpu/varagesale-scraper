@@ -3,7 +3,7 @@
   "actorSpecification": 1,
   "name": "varagesale-scraper",
   "title": "VarageSale Scraper (Playwright)",
-  "version": "2.0",
+  "version": "3.0",
   "inputSchema": "./input_schema.json",
   "outputSchema": "./output_schema.json",
   "dockerfile": "./Dockerfile"
