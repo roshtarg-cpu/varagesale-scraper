@@ -1,4 +1,11 @@
 import asyncio
-from .main import main
+import sys
+import traceback
 
-asyncio.run(main())
+try:
+    from .main import main
+    asyncio.run(main())
+except Exception as e:
+    print(f"ERROR: {type(e).__name__}: {e}", file=sys.stderr)
+    traceback.print_exc()
+    sys.exit(1)

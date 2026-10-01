@@ -46,7 +46,7 @@ async def main():
         html = resp.text
         
         # Find all item links
-        item_pattern = re.compile(r'href="(/items/[a-z0-9-]+-[a-z0-9-]+")')
+        item_pattern = re.compile(r'href="(/items/[a-z0-9-]+-[a-z0-9-]+)"')
         item_links = list(set(item_pattern.findall(html)))
         
         Actor.log.info(f'Found {len(item_links)} item links')
