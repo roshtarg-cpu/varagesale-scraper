@@ -1,59 +1,31 @@
 {
-  "$schema": "https://apify.com/schemas/v1/input.ide.json",
-  "title": "Input schema",
+  "title": "Geebo Scraper Input",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "location": {
-      "type": "string",
-      "title": "Location",
-      "description": "City/region slug (e.g., 'wichita-ks', 'new-york-ny')",
-      "editor": "textfield",
-      "prefill": "wichita-ks"
-    },
     "category": {
-      "type": "string",
       "title": "Category",
-      "description": "Filter by category (all categories by default)",
-      "editor": "select",
-      "enum": ["all", "furniture", "electronics", "clothing", "toys", "home", "garden", "sports"],
-      "prefill": "all"
+      "type": "string",
+      "description": "Category to scrape (e.g., jobs, housing, for-sale, services)",
+      "default": "all",
+      "editor": "textfield"
     },
-    "minPrice": {
-      "type": "integer",
-      "title": "Minimum Price",
-      "description": "Filter results by minimum price (leave 0 for no limit)",
-      "editor": "number",
-      "minimum": 0,
-      "prefill": 0
-    },
-    "maxPrice": {
-      "type": "integer",
-      "title": "Maximum Price",
-      "description": "Filter results by maximum price (leave 999999 for no limit)",
-      "editor": "number",
-      "minimum": 0,
-      "prefill": 999999
+    "location": {
+      "title": "Location",
+      "type": "string",
+      "description": "Location filter (optional, Geebo shows USA-wide by default)",
+      "default": "usa",
+      "editor": "textfield"
     },
     "maxResults": {
-      "type": "integer",
       "title": "Max Results",
-      "description": "Maximum number of results to scrape (higher values increase cost)",
-      "default": 3,
+      "type": "integer",
+      "description": "Maximum number of listings to scrape",
+      "default": 10,
       "minimum": 1,
-      "maximum": 10000,
-      "editor": "number",
-      "prefill": 3
-    },
-    "proxyConfiguration": {
-      "type": "object",
-      "title": "Proxy Configuration",
-      "description": "Select proxy group (RESIDENTIAL recommended for best reliability)",
-      "editor": "proxy",
-      "default": {
-        "useApifyProxy": true,
-        "apifyProxyGroups": ["RESIDENTIAL"]
-      }
+      "maximum": 100,
+      "editor": "number"
     }
-  }
+  },
+  "required": ["category", "maxResults"]
 }
