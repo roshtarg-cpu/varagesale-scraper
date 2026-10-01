@@ -19,12 +19,12 @@ async def main():
         
         # Get proxy URL from Apify
         proxy_url = None
-        if proxy_config:
-            print(f'[INFO] Using proxy configuration', flush=True)
-            proxy_info = await Actor.create_proxy_configuration(proxy_config)
+        if proxy_config and proxy_config.get('useApifyProxy'):
+            print(f'[INFO] Using Apify proxy', flush=True)
+            proxy_info = await Actor.create_proxy_configuration()
             if proxy_info:
                 proxy_url = await proxy_info.new_url()
-                print(f'[INFO] Proxy URL obtained', flush=True)
+                print(f'[INFO] Proxy URL: {proxy_url[:50]}...', flush=True)
         
         proxies = {'http': proxy_url, 'https': proxy_url} if proxy_url else None
         
