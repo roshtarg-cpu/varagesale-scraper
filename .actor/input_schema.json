@@ -8,7 +8,8 @@
       "type": "string",
       "description": "VarageSale location slug (e.g., 'toronto', 'chicago', 'seattle')",
       "default": "toronto",
-      "editor": "textfield"
+      "editor": "textfield",
+      "prefill": "toronto"
     },
     "maxResults": {
       "title": "Max Results",
@@ -17,7 +18,8 @@
       "default": 10,
       "minimum": 1,
       "maximum": 100,
-      "editor": "number"
+      "editor": "number",
+      "prefill": 3
     }
   },
   "required": ["location", "maxResults"]
