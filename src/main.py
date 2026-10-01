@@ -46,19 +46,43 @@ async def main():
                     try:
                         await page.goto(listing_url, wait_until='domcontentloaded', timeout=30000)
                         
-                        # Extract JSON-LD
-                        json_ld = await page.eval_on_selector(
-                            'script[type="application/ld+json"]',
-                            'el => JSON.parse(el.textContent)'
-                        )
+                        # Extract from HTML directly
+                        title = await page.text_content('h1')
+                        
+                        # Try common price selectors
+                        price = None
+                        for selector in ['.price', '[class*="price"]', 'span:has-text("$")']:
+                            try:
+                                price = await page.text_content(selector, timeout=2000)
+                                if price and '$' in price:
+                                    break
+                            except:
+                                pass
+                        
+                        # Description
+                        description = None
+                        for selector in ['.description', '[class*="description"]', 'p']:
+                            try:
+                                description = await page.text_content(selector, timeout=2000)
+                                if description and len(description) > 20:
+                                    break
+                            except:
+                                pass
+                        
+                        # Image
+                        image = None
+                        try:
+                            image = await page.get_attribute('img', 'src', timeout=2000)
+                        except:
+                            pass
                         
                         result = {
                             'url': listing_url,
-                            'title': json_ld.get('name'),
-                            'description': json_ld.get('description'),
-                            'price': json_ld.get('offers', {}).get('price'),
-                            'currency': json_ld.get('offers', {}).get('priceCurrency', 'USD'),
-                            'image': json_ld.get('image'),
+                            'title': title.strip() if title else None,
+                            'description': description.strip() if description else None,
+                            'price': price.strip() if price else None,
+                            'image': image,
+                            'location': location,
                             'scrapedAt': datetime.now(timezone.utc).isoformat()
                         }
                         
