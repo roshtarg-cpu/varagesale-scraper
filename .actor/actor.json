@@ -1,9 +1,9 @@
 {
   "$schema": "https://apify.com/schemas/v1/actor.ide.json",
   "actorSpecification": 1,
-  "name": "varagesale-scraper",
-  "title": "Geebo Scraper - Extract Classifieds Listings",
-  "version": "1.1",
+  "name": "classifieds-scraper-demo",
+  "title": "Classifieds Scraper (Demo)",
+  "version": "2.0",
   "inputSchema": "./input_schema.json",
   "outputSchema": "./output_schema.json",
   "dockerfile": "./Dockerfile"
