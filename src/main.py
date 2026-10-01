@@ -8,8 +8,13 @@ from apify import Actor
 
 
 async def main():
+    print("main() called", flush=True)
+    
     async with Actor:
+        print("Inside Actor context", flush=True)
+        
         input_data = await Actor.get_input() or {}
+        print(f"Got input: {input_data}", flush=True)
         
         location = input_data.get('location', 'wichita-ks')
         max_results = input_data.get('maxResults', 3)
@@ -60,7 +65,9 @@ async def main():
                     Actor.log.error(f'Error scraping {item_url}: {e}')
             
             Actor.log.info(f'Scraper completed - {results_count} items saved')
+            print(f"Done! {results_count} items", flush=True)
             
         except Exception as e:
             Actor.log.error(f'Fatal error: {e}')
+            print(f"FATAL: {e}", flush=True)
             raise
