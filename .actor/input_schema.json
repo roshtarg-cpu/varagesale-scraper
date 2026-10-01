@@ -1,20 +1,13 @@
 {
-  "title": "Geebo Scraper Input",
+  "title": "VarageSale Scraper Input",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
-    "category": {
-      "title": "Category",
-      "type": "string",
-      "description": "Category to scrape (e.g., jobs, housing, for-sale, services)",
-      "default": "all",
-      "editor": "textfield"
-    },
     "location": {
       "title": "Location",
       "type": "string",
-      "description": "Location filter (optional, Geebo shows USA-wide by default)",
-      "default": "usa",
+      "description": "VarageSale location slug (e.g., 'toronto', 'chicago', 'seattle')",
+      "default": "toronto",
       "editor": "textfield"
     },
     "maxResults": {
@@ -27,5 +20,5 @@
       "editor": "number"
     }
   },
-  "required": ["category", "maxResults"]
+  "required": ["location", "maxResults"]
 }

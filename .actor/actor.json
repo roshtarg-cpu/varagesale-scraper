@@ -1,8 +1,8 @@
 {
   "$schema": "https://apify.com/schemas/v1/actor.ide.json",
   "actorSpecification": 1,
-  "name": "classifieds-scraper-demo",
-  "title": "Classifieds Scraper (Demo)",
+  "name": "varagesale-scraper",
+  "title": "VarageSale Scraper (Playwright)",
   "version": "2.0",
   "inputSchema": "./input_schema.json",
   "outputSchema": "./output_schema.json",
